@@ -42,4 +42,22 @@ void codificar()
 	crearPila(&P);
 	NODOL *principal=NULL;
 	ArbolBinario abh;
+	leerCadena(Cadena);/*lee la cadena de original.txt*/
+	escribirFrecuencias();/*escribe tabla de frecuencias*/
+	principal=obtenerFrecuencias(principal);/*Obtiene frecuencias*/
+	imprimirLDE(principal);/*Lista ordenada etapa 1*/
+	free(letras); /*Liberar el espacio*/
+	abh=armarArbol(principal); /*Regresa el arbol de huffman*/
+	
+	printf("Preorden\n");
+	preorden(abh); /*Arbol de huffman*/
+	printf("\n");
+	
+	
+	recorridoAB(abh); /*Se obtiene el codigo para cada letra*/
+	escribirCodificado(cadena);
+
+
+	printf("Archivo Codificado y comprimido con exito");
+
 }
