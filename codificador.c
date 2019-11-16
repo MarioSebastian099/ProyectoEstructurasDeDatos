@@ -61,3 +61,21 @@ void codificar()
 	printf("Archivo Codificado y comprimido con exito");
 
 }
+void leerCadena(char *cadena)
+{
+  FILE *arch_org;
+  int i=0, j;
+  char = l;
+  arch_org = fopen("ArchivosDeCodificacion/original.txt","r");
+
+  while((l = fgetc(arch_org)) != EOF){
+    j = 1;
+    if(j<0){
+      j+ = 256;
+    }
+    letras[j]++;
+    cadena[i] = l;
+    i++;
+  }
+  fclose(arch_org);
+}
