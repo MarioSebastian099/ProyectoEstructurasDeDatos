@@ -61,6 +61,28 @@ void codificar()
 	printf("Archivo Codificado y comprimido con exito");
 
 }
+NODOL *obtenerFrecuencias(NODOL *principal)
+{
+FILE *arch_frec;
+arch_frec =fopen("ArchivosCompartidos/frecuencias.txt","r");
+char l = 'a';
+int f;
+elementoA e;
+
+while(l !=EOF)
+{
+fscanf(arch_frec,"%c=%d",&l,&f);
+e.f=f;
+e.l=l;
+insertarcabLDE(crearNodo(e),&principal);
+l=fgetc(arch_frec);
+}
+ordenarLDE(principal);
+fclose(arch_frec);
+return principal;
+}
+
+
 void leerCadena(char *cadena)
 {
   FILE *arch_org;
