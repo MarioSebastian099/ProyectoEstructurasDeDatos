@@ -19,9 +19,8 @@ int main(void)
 
 void menu()
 {
-	letras = (int*)calloc(255,sizeof(int));
-	codigos = (char **)calloc(255,sizeof(char*));
-
+codigos =(char **)calloc(255,sizeof(char*)); 
+letras = (int*)calloc(255,sizeof(int));
 	int j;
 	
 	for(j=0; j<255; j++)
