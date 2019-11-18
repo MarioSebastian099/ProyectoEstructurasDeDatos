@@ -79,3 +79,32 @@ void leerCadena(char *cadena)
   }
   fclose(arch_org);
 }
+
+void escribirFrecuencias()
+{
+        int i = 0, j=0 ;
+        FILE *arch_frec;
+        arch_frec = fopen("ArchivosCompartidos/frecuencias.txt","w+");
+
+        while(i < 255)
+        {
+                if(letras[i] != 0)
+                {
+                        if(j==0)
+                        {
+                                fprintf(arch_frec, "%c=%d", i,letras[i]);
+                                j++;
+                        }
+
+                        else
+                        fprintf(arch_frec, "\n%c=%d", i,letras[i]);
+
+                //printf("%c=%d\n", i, letras[i] );
+                }
+                i++;
+        }
+
+        fclose(arch_frec);
+}
+
+
