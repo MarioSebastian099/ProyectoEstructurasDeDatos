@@ -8,7 +8,13 @@ include "Librerias/pila.c"
 #define TAMCADENACODIFICADA 100000000
 
 void menu();
+void leerCadena(char *);
+void escribirFrecuencias();
+NODOL * obtenerFrecuencias(NODOL *);
+ArbolBinario armarArbol(NODOL *);
 void codificar();
+int binToDec(int);
+int pw(int,int);
 
 
 int main(void)
@@ -127,3 +133,28 @@ fclose(arch_frec);
 return principal;
 }
 
+ArbolBinario armarArbol(NODOL *principal)
+{
+	ArbolBinario raiz, ri ,rd;
+	elementoA e;
+
+	while(longitudLDE(principal)>1)
+	{
+		raiz=NULL;
+
+		ri=quitarcabLDE(&principal);
+		rd=quitarcabLDE(&principal);
+
+		e.f = ri->dato.f + rd->dato.f;
+		e.l = '$';
+
+		nuevoArbol(&raiz, e, ri ,rd);
+		insertarcabLDE(raiz, &principal);
+		ordenarLDE(principal);
+		printf("\n");
+		imprimirLDE(principal);
+
+	}
+	return quitarcabLDE(&principal);
+
+}
