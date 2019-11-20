@@ -192,3 +192,46 @@ void escribirCodificado(char *cadena)
 
 	arch_com = fopen("ArchivosCompartidos/comprimido.txt","w+");
 	i=1;
+
+	int num=0, j=0;
+
+	aux[0] = '1';
+
+	while(cadena[j] != 0)
+	{
+		if(i==8)
+		{
+			num = atoi(aux);////int binario
+			//printf("%d\n", num);
+			aux[i] = 0;
+			//printf("\n%s\n",aux);
+			//printf("%d\n", num);
+			free(aux);
+			aux = (char*)malloc(7*sizeof(char));
+			aux[0] = '1';
+			fprintf(arch_cod, "%c", binToDec(num)-1);
+
+			//printf("%d\n", binToDec(num)-1);
+			i=1;
+			j--;
+		}
+		else
+		{
+			aux[i] = cadena[j];
+			//printf("%s\n", aux);
+			i++;
+		}
+		 j++;
+
+	}
+
+	aux[i] = 0;
+	num = atoi(aux);
+	//printf("%dfinal\n", num);
+	//free(aux);
+	fprintf(arch_cod, "%c", binToDec(num)-1);
+	//printf("%d\n", binToDec(num)-1);
+	free(cadena);
+	fclose(arch_com);
+
+}
