@@ -158,3 +158,37 @@ ArbolBinario armarArbol(NODOL *principal)
 	return quitarcabLDE(&principal);
 
 }
+
+void escribirCodificado(char *cadena)
+{
+	FILE *arch_cod, *arch_com;
+	arch_cod = fopen("ArchivosDeCodificacion/codificado.txt","w+");
+	char *aux = (char*)malloc(7*sizeof(char));
+	char l;
+
+	int i =0;
+	while( (l=cadena[i]) != 0)
+	{
+		if(l<0)
+		{
+			l+=256;
+		}
+
+		fprintf(arch_cod, "%s", codigos[l]);
+		//printf("%s\n", codigos[l]);
+		i++;
+	}
+	fclose(arch_cod);
+
+
+	cadena = (char*)malloc(TAMCADENACODIFICADA*sizeof(char));
+
+	arch_cod = fopen("ArchivosDeCodificacion/codificado.txt","r");
+	fscanf(arch_cod,"%s", cadena);
+	fclose(arch_cod);
+
+	//printf("\n%s", cadena);
+
+
+	arch_com = fopen("ArchivosCompartidos/comprimido.txt","w+");
+	i=1;
