@@ -239,29 +239,29 @@ void recorridoAB(ArbolBinario raiz)
 
 {
 
-	if(raiz->izq)
-		{
-			insertarPila(&P, '0');
-			recorridoAB(raiz->izq);
-			quitarPila(&P);
-		}
-		
-		if(raiz->der)
-		{
-			insertarPila(&P, '1');
-			recorridoAB(raiz->der);
-			quitarPila(&P);
-		}
+        if(raiz->izq)
+                {
+                        insertarPila(&P, '0');
+                        recorridoAB(raiz->izq);
+                        quitarPila(&P);
+                }
+
+                if(raiz->der)
+                {
+                        insertarPila(&P, '1');
+                        recorridoAB(raiz->der);
+                        quitarPila(&P);
+                }
 
 
-	if((!raiz->izq) && (!raiz->der))
-	{
-		printf("%c = %s\n", raiz->dato.l,cadenaPila(P));
-		codigos[raiz->dato.l] = cadenaPila(P);
-		//printf("%s%dcoido\n", codigos[raiz->dato.l],5);
-	}
-	
-		
+        if((!raiz->izq) && (!raiz->der))
+        {
+                printf("%c = %s\n", raiz->dato.l,cadenaPila(P));
+                codigos[raiz->dato.l] = cadenaPila(P);
+                //printf("%s%dcoido\n", codigos[raiz->dato.l],5);
+        }
+
+
 }
 int binToDec(int n)
 {
@@ -275,3 +275,5 @@ int binToDec(int n)
     }
     return decimalNumber;
 }
+
+
