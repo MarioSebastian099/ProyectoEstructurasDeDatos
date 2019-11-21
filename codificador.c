@@ -263,6 +263,8 @@ void recorridoAB(ArbolBinario raiz)
 
 
 }
+
+
 int binToDec(int n)
 {
     int decimalNumber = 0, i = 0, digit;
@@ -277,3 +279,12 @@ int binToDec(int n)
 }
 
 
+int pw(int x, int y)
+{
+    if (y == 0)
+        return 1;
+    else if (y%2 == 0)
+        return pw(x, y/2)*pw(x, y/2);
+    else
+        return x*pw(x, y/2)*pw(x, y/2);
+}
