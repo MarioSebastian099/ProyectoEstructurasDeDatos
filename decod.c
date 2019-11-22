@@ -30,5 +30,44 @@ void menu()
         ArbolBinario abh;/////Arbol
 
         char *cadena;
-        
+        cadena = (char*)malloc(TAMCADENACODIFICADA*sizeof(char));
+
+
+        principal = obtenerFrecuencias(principal);
+        abh = armarArbol(principal);
+        cadena = descomprimir(cadena);
+
+        decodificarArbol(abh, cadena);
+        free(cadena);
+        printf("Texto Descomprimido y Decodificado\n");
+
+
+}
+
+NODOL * obtenerFrecuencias(NODOL *principal)
+{
+        FILE *arch_frec;
+        arch_frec = fopen("ArchivosCompartidos/frecuencias.txt","r");
+        char l = 'a';
+        int f;
+
+        elementoA e;
+
+        while(l != EOF)
+        {
+                fscanf(arch_frec,"%c=%d", &l, &f);
+                e.f = f;
+                e.l = l;
+                insertarcabLDE(crearNodo(e), &principal);
+                l = fgetc(arch_frec);
+        }
+
+        ordenarLDE(principal);
+        fclose(arch_frec);
+
+        return principal;
+
+}
+
+
 
