@@ -70,4 +70,28 @@ NODOL * obtenerFrecuencias(NODOL *principal)
 }
 
 
+ArbolBinario armararbol(NODOL *principal)
+{
+	ArbolBinario raiz,ri, rd;
+	elementoA e;
 
+	while(longitudLDE(principal)>1)
+	{
+		raiz=NULL;
+
+		ri=quitarcabLDE(&principal);
+		rd=quitarcabLDE(&principal);
+
+		e.f =ri->dato.f + rd->datof;
+		e.l= '$';
+
+		nuevoArbol(&raiz, e, ri, rd);
+		insertarcabLDE(raiz, &principal);
+		ordenarLDE(principal);
+
+
+	}
+
+	return quitarcabLDE(&principal);
+
+}
