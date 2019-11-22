@@ -19,7 +19,9 @@ int main(void)
 {
         menu();
         return 0;
+
 }
+
 
 void menu()
 {
@@ -28,17 +30,5 @@ void menu()
         ArbolBinario abh;/////Arbol
 
         char *cadena;
-        cadena = (char*)malloc(TAMCADENACODIFICADA*sizeof(char));
-
-
-        principal = obtenerFrecuencias(principal);
-        abh = armarArbol(principal);
-        cadena = descomprimir(cadena);
-
-        decodificarArbol(abh, cadena);
-        free(cadena);
-        printf("Texto Descomprimido y Decodificado\n");
-
-
-}
+        
 
