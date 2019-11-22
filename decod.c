@@ -2,9 +2,9 @@
 #include <stdio.h>
 #include <string.h>
 
-#include "Librerias/Arbol.cpp"
-#include "Librerias/LDE.cpp"
-#include "Librerias/pila.cpp"
+#include "Librerias/Arbol.c"
+#include "Librerias/LDE.c"
+#include "Librerias/pila.c"
 
 #define TAMCADENACODIFICADA 100000000
 
